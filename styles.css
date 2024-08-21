@@ -1,0 +1,392 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131B3F;
+    color: #8FB3BB;
+
+    /* Custom Background Integration */
+    background-image: url('5446991.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    background-color:rgba(0,0,0,0.3); /* Updated color */
+    padding: 20px;
+    text-align: center;
+    max-width: 1200px; /* Match the width of other sections */
+    margin: 0 auto; /* Center align the header */
+    border-radius: 10px; /* Round edges */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(12, 20, 55, 0.8); /* Updated color */
+    max-width: 100%; /* Ensure full width within header */
+    border-radius: 10px; /* Round edges */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #C977A8;
+    text-decoration: none; /* Remove underline */
+    padding: 10px;
+    display: block;
+    border-radius: 20px; /* Rounded buttons */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #8FB3BB; /* Highlight color from file1 */
+    color: #10183B;
+    text-decoration: none; /* Ensure no underline */
+}
+
+.logo {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
+}
+
+section {
+    padding: 40px;
+    background-color: rgba(12, 20, 55, 0.8); /* Semi-transparent background */
+    color: #8FB3BB;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+#home {
+    padding-top: 0; /* Remove padding-top adjustment for Home section */
+}
+
+section:not(#home)::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50px; /* Thicker top border */
+    background-color: #C977A8;
+    position: absolute;
+    top: 0; /* Align border to the top of the section */
+    left: 0;
+    z-index: 1;
+}
+
+section h2 {
+    margin: 0;
+    color: #151717;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    padding: 0; /* Remove the padding */
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    top: -25px;
+}
+
+section p {
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.packs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 20px; /* Space between grid items */
+}
+
+.pack {
+    background-color: #171E3F;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+}
+
+.pack:hover {
+    transform: scale(1.05);
+    background-color: #C977A8;
+}
+
+.pack img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #10183B; /* Updated color from file1 */
+    text-align: center;
+    padding: 20px;
+    color: #8FB3BB;
+    max-width: 1200px; /* Match the width of other sections */
+    margin: 0 auto; /* Center align the footer */
+    border-radius: 10px; /* Round edges from file1 */
+}
+
+a {
+    color: #C977A8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #8FB3BB;
+}
+
+/* Ensure uniform image styling */
+img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Center align the section content */
+#pack-details {
+    text-align: center;
+}
+
+/* Adjust the size of the main image for the thumbnail role */
+.pack-cover {
+    margin: 0 auto;
+    display: block;
+    border: 2px solid #c977a800;
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+}
+
+/* Style for the feature images (centered) */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style for each feature block */
+.feature {
+    background-color: #171E3F;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+    width: 250px;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+    background-color: #C977A8;
+}
+
+.feature img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Keep the modal hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%; /* Position 50% from the top */
+    left: 50%; /* Position 50% from the left */
+    transform: translate(-50%, -50%); /* Center the modal content */
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+#caption {
+    color: #C977A8;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #C977A8;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f1f1f1;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #C977A8;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 4px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Download button styling */
+.download {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #C977A8;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download:hover {
+    background-color: #A86F9F;
+}
+
+#home-element {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.coffee-img {
+    width: 200px; /* Increase the width for a larger size */
+    height: auto; /* Maintains the aspect ratio */
+    border: 2px solid rgba(0, 0, 0, 0); /* Adds a black border */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.coffee-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    border-color: #ff990000; /* Changes the border color on hover */
+}
+
+.PMC-img {
+    width: 200px; /* Increase the width for a larger size */
+    height: auto; /* Maintains the aspect ratio */
+    border: 2px solid rgba(227, 125, 30, 0); /* Adds a black border */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.PMC-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    border-color: #62ff0000; /* Changes the border color on hover */
+}
+
+.Dis-img {
+    width: 200px; /* Increase the width for a larger size */
+    height: auto; /* Maintains the aspect ratio */
+    border: 2px solid rgba(227, 125, 30, 0); /* Adds a black border */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.Dis-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    border-color: #62ff0000; /* Changes the border color on hover */
+}
+
+/* Styles for the mobile responsive nav */
+.navbar {
+    overflow: hidden;
+    background-color: rgba(12, 20, 55, 0.8);
+    position: relative;
+    border-radius: 10px;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #C977A8;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 20px;
+}
+
+.navbar a:hover {
+    background-color: #8FB3BB;
+    color: #10183B;
+}
+
+.navbar a.active {
+    background-color: #8FB3BB;
+    color: white;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(:first-child) {
+        display: none;
+    }
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar.responsive {
+        position: relative;
+    }
+    .navbar.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+/* Rest of your styles remain unchanged */
