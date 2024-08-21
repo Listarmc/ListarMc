@@ -294,17 +294,25 @@ img {
     margin-left: 20px;
 }
 
-.coffee-img {
-    width: 200px; /* Increase the width for a larger size */
-    height: auto; /* Maintains the aspect ratio */
-    border: 2px solid rgba(0, 0, 0, 0); /* Adds a black border */
-    transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+.resources-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Add space between the images */
+    padding: 20px; /* Optional: Add some padding around the grid */
 }
 
-.coffee-img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    border-color: #ff990000; /* Changes the border color on hover */
+.coffee-img, .PMC-img, .Dis-img {
+    width: 200px; /* Maintain the size */
+    height: auto;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
+
+.coffee-img:hover, .PMC-img:hover, .Dis-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
 
 .PMC-img {
     width: 200px; /* Increase the width for a larger size */

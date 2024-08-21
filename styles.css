@@ -332,6 +332,52 @@ img {
     border-color: #62ff0000; /* Changes the border color on hover */
 }
 
+/* Responsive layout for small screens */
+@media screen and (max-width: 600px) {
+    #home {
+        flex-direction: column; /* Stack the elements vertically */
+        align-items: center; /* Center align the elements */
+        text-align: center; /* Center the text */
+    }
+
+    #home > div:first-child {
+        flex-direction: column; /* Stack logo and text vertically */
+        align-items: center; /* Center them */
+        margin: 0 0 20px 0; /* Remove left margin and add bottom margin */
+        width: 100%; /* Make it full width */
+    }
+
+    #home img {
+        margin-bottom: 20px; /* Add margin below the logo */
+    }
+
+    #home > div:first-child > div {
+        margin-top: 0; /* Remove top margin for the text block */
+        width: 100%; /* Make it full width */
+    }
+
+    .discord-widget {
+        width: 100%; /* Make it full width */
+        margin: 20px 0; /* Add top and bottom margin */
+    }
+
+    /* Make the packs grid layout responsive */
+    .packs-grid {
+        grid-template-columns: 1fr; /* Change to a single column layout */
+        gap: 15px; /* Adjust the gap for better spacing on small screens */
+    }
+
+    /* Ensure images and text in the packs align well in mobile view */
+    .pack {
+        text-align: center; /* Center text for a cleaner mobile layout */
+    }
+
+    .pack img {
+        max-width: 80%; /* Adjust image size for mobile */
+        margin: 0 auto; /* Center the images */
+    }
+}
+
 /* Styles for the mobile responsive nav */
 .navbar {
     overflow: hidden;
@@ -391,48 +437,12 @@ img {
     }
 }
 
-/* Responsive layout adjustments */
-@media screen and (max-width: 600px) {
-    #home {
-        flex-direction: column; /* Stack the elements vertically */
-        align-items: center; /* Center align the elements */
-        text-align: center; /* Center the text */
-    }
-
-    #home > div:first-child {
-        flex-direction: column; /* Stack logo and text vertically */
-        align-items: center; /* Center them */
-        margin: 0 0 20px 0; /* Remove left margin and add bottom margin */
-        width: 100%; /* Make it full width */
-    }
-
-    #home img {
-        margin-bottom: 20px; /* Add margin below the logo */
-    }
-
-    #home > div:first-child > div {
-        margin-top: 0; /* Remove top margin for the text block */
-        width: 100%; /* Make it full width */
-    }
-
-    .discord-widget {
-        width: 100%; /* Make it full width */
-        margin: 20px 0; /* Add top and bottom margin */
-    }
-
-    /* Make the packs grid layout responsive */
-    .packs-grid {
-        grid-template-columns: 1fr; /* Change to a single column layout */
-        gap: 15px; /* Adjust the gap for better spacing on small screens */
-    }
-
-    /* Ensure images and text in the packs align well in mobile view */
-    .pack {
-        text-align: center; /* Center text for a cleaner mobile layout */
-    }
-
-    .pack img {
-        max-width: 80%; /* Adjust image size for mobile */
-        margin: 0 auto; /* Center the images */
-    }
+/* Updated resources-grid to add spacing */
+.resources-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Add space between the images */
+    padding: 20px; /* Optional: Add some padding around the grid */
 }
