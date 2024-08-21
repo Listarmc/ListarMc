@@ -446,3 +446,43 @@ img {
     gap: 30px; /* Add space between the images */
     padding: 20px; /* Optional: Add some padding around the grid */
 }
+
+.pack-container {
+    /* Your existing styles for the pack container */
+    width: 300px; /* Adjust as needed */
+    padding: 15px;
+    background-color: #2c2f33;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .pack-container img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .pack-container .tags {
+    margin-top: 10px;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 5px 0 0;
+    background: linear-gradient(90deg, rgba(18,0,36,1) 0%, rgba(121,9,109,1) 37%, rgba(255,0,211,1) 100%);
+    border-radius: 15px;
+    font-size: 12px;
+    color: white;
+  }
+  
+  .variety {
+    background-color: #faa61a;
+  }
+  
+  .custom-items {
+    background-color: #77dd77;
+  }
+  
+  /* Add more classes for other tag types with their respective colors */
+  
