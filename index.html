@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+
+`<link rel="icon" type="image/gif" href="fav.gif">
+
+<script>
+    // Function to round the corners of the favicon
+    function roundFavicon(imageSrc) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = () => {
+            const size = Math.min(img.width, img.height);
+            canvas.width = size;
+            canvas.height = size;
+
+            // Draw a rounded rectangle
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2, true);
+            ctx.closePath();
+            ctx.clip();
+
+            // Draw the image within the rounded rectangle
+            ctx.drawImage(img, 0, 0, size, size);
+
+            // Set the canvas as the favicon
+            const favicon = document.getElementById('dynamic-favicon');
+            favicon.href = canvas.toDataURL('image/gif');
+        };
+
+        img.src = imageSrc;
+    }
+
+    // Apply the function to your GIF logo
+    roundFavicon('logo.gif');
+</script>
 
     <style>
         /* Navbar styling */
