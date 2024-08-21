@@ -9,40 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon -->
 
-<link rel="icon" type="image/gif" href="fav.gif">
-
-<script>
-    // Function to round the corners of the favicon
-    function roundFavicon(imageSrc) {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
-
-        img.onload = () => {
-            const size = Math.min(img.width, img.height);
-            canvas.width = size;
-            canvas.height = size;
-
-            // Draw a rounded rectangle
-            ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2, true);
-            ctx.closePath();
-            ctx.clip();
-
-            // Draw the image within the rounded rectangle
-            ctx.drawImage(img, 0, 0, size, size);
-
-            // Set the canvas as the favicon
-            const favicon = document.getElementById('dynamic-favicon');
-            favicon.href = canvas.toDataURL('image/gif');
-        };
-
-        img.src = imageSrc;
-    }
-
-    // Apply the function to your GIF logo
-    roundFavicon('logo.gif');
-</script>
+    <link rel="icon" type="image/gif" href="fav.gif">
 
     <style>
         /* Navbar styling */
@@ -143,6 +110,45 @@
             width: 100%; /* Ensure full-width centering */
             margin: 20px 0; /* Add some margin for spacing */
         }
+
+        /* Responsive layout adjustments */
+        @media screen and (max-width: 600px) {
+            #home {
+                flex-direction: column; /* Stack the elements vertically */
+                align-items: center; /* Center align the elements */
+                text-align: center; /* Center the text */
+            }
+
+            #home > div:first-child {
+                margin: 0 0 20px 0; /* Remove left margin and add bottom margin */
+                width: 100%; /* Make it full width */
+            }
+
+            #home img {
+                margin-bottom: 20px; /* Add margin below the logo */
+            }
+
+            .discord-widget {
+                width: 100%; /* Make it full width */
+                margin: 20px 0; /* Add top and bottom margin */
+            }
+
+            /* Make the packs grid layout responsive */
+            .packs-grid {
+                grid-template-columns: 1fr; /* Change to a single column layout */
+                gap: 15px; /* Adjust the gap for better spacing on small screens */
+            }
+
+            /* Ensure images and text in the packs align well in mobile view */
+            .pack {
+                text-align: center; /* Center text for a cleaner mobile layout */
+            }
+
+            .pack img {
+                max-width: 80%; /* Adjust image size for mobile */
+                margin: 0 auto; /* Center the images */
+            }
+        }
     </style>
 </head>
 <body>
@@ -188,10 +194,6 @@
                 <img src="https://i.imgur.com/FIXcv9l.png" alt="Kaiju No. 8 Custom GUI Pack">
                 <h3>Kaiju No. 8 Custom GUI Pack</h3>
             </div>
-            <div class="pack" data-href="Packs/Solo Leveling Custom GUI.html" data-name="Solo Leveling Custom GUI">
-                <img src="https://i.imgur.com/2IKdvnv.png" alt="Solo Leveling Custom GUI">
-                <h3>Solo Leveling Custom GUI</h3>
-            </div>
             <div class="pack" data-href="Packs/Kill la Kill Custom GUI Pack.html" data-name="Kill la Kill Custom GUI Pack">
                 <img src="https://i.imgur.com/ulkNDzb.png" alt="Kill la Kill Custom GUI Pack">
                 <h3>Kill la Kill Custom GUI Pack</h3>
@@ -204,7 +206,15 @@
                 <img src="https://d1unuvan7ts7ur.cloudfront.net/1500x0/filters:strip_exif()/2e744661-b813-4c94-ab1c-ffef1c6e6f8d/01HMDTBFYXVSHS6CM71A5TDF3T" alt="Demon Slayer Kimetsu no Yaiba Custom GUI Pack">
                 <h3>Chainsaw Man Custom GUI Pack</h3>
             </div>
-            <!-- Repeat packs as necessary -->
+            <div class="pack" data-href="Packs/Mushoku Tensei Jobless Reincarnation Custom GUI Pack" data-name="Mushoku Tensei Jobless Reincarnation Custom GUI Pack">
+                <img src="https://i.imgur.com/hBmCUPA.png" alt="Mushoku Tensei Jobless Reincarnation Custom GUI Pack">
+                <h3>Mushoku Tensei Jobless Reincarnation Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Solo Leveling Custom GUI.html" data-name="Solo Leveling Custom GUI">
+                <img src="https://i.imgur.com/2IKdvnv.png" alt="Solo Leveling Custom GUI">
+                <h3>Solo Leveling Custom GUI</h3>
+            </div>
+            
         </div>
     </section>
 
@@ -228,6 +238,15 @@
     </footer>
 
     <script>
+    window.onload = function() {
+        const packsGrid = document.getElementById('packs-grid');
+        const savedPacksHtml = localStorage.getItem('indexPagePacks');
+
+        if (savedPacksHtml) {
+            packsGrid.innerHTML = savedPacksHtml;
+        }
+    };
+
         // Toggle function for mobile navigation menu
         function toggleNav() {
             var x = document.getElementById("myNavbar");

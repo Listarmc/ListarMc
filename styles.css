@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,7 +14,7 @@ body {
 }
 
 header {
-    background-color:rgba(0,0,0,0.3); /* Updated color */
+    background-color: rgba(0,0,0,0.3); /* Updated color */
     padding: 20px;
     text-align: center;
     max-width: 1200px; /* Match the width of other sections */
@@ -48,7 +47,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #8FB3BB; /* Highlight color from file1 */
+    background-color: #8FB3BB; /* Highlight color */
     color: #10183B;
     text-decoration: none; /* Ensure no underline */
 }
@@ -72,6 +71,9 @@ section {
 
 #home {
     padding-top: 0; /* Remove padding-top adjustment for Home section */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 section:not(#home)::before {
@@ -131,13 +133,13 @@ section p {
 }
 
 footer {
-    background-color: #10183B; /* Updated color from file1 */
+    background-color: #10183B; /* Updated color */
     text-align: center;
     padding: 20px;
     color: #8FB3BB;
     max-width: 1200px; /* Match the width of other sections */
     margin: 0 auto; /* Center align the footer */
-    border-radius: 10px; /* Round edges from file1 */
+    border-radius: 10px; /* Round edges */
 }
 
 a {
@@ -389,4 +391,48 @@ img {
     }
 }
 
-/* Rest of your styles remain unchanged */
+/* Responsive layout adjustments */
+@media screen and (max-width: 600px) {
+    #home {
+        flex-direction: column; /* Stack the elements vertically */
+        align-items: center; /* Center align the elements */
+        text-align: center; /* Center the text */
+    }
+
+    #home > div:first-child {
+        flex-direction: column; /* Stack logo and text vertically */
+        align-items: center; /* Center them */
+        margin: 0 0 20px 0; /* Remove left margin and add bottom margin */
+        width: 100%; /* Make it full width */
+    }
+
+    #home img {
+        margin-bottom: 20px; /* Add margin below the logo */
+    }
+
+    #home > div:first-child > div {
+        margin-top: 0; /* Remove top margin for the text block */
+        width: 100%; /* Make it full width */
+    }
+
+    .discord-widget {
+        width: 100%; /* Make it full width */
+        margin: 20px 0; /* Add top and bottom margin */
+    }
+
+    /* Make the packs grid layout responsive */
+    .packs-grid {
+        grid-template-columns: 1fr; /* Change to a single column layout */
+        gap: 15px; /* Adjust the gap for better spacing on small screens */
+    }
+
+    /* Ensure images and text in the packs align well in mobile view */
+    .pack {
+        text-align: center; /* Center text for a cleaner mobile layout */
+    }
+
+    .pack img {
+        max-width: 80%; /* Adjust image size for mobile */
+        margin: 0 auto; /* Center the images */
+    }
+}
