@@ -104,8 +104,6 @@
     </style>
 </head>
 <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
     <div class="admin-container">
         <h1>Admin Panel - Update Texture Packs</h1>
         <form id="addPackForm">
@@ -127,155 +125,135 @@
         </div>
     </div>
 
-    <!-- Clerk.js Library -->
-    <script
-        async
-        crossorigin="anonymous"
-        data-clerk-publishable-key="pk_test_c2F2aW5nLWdvYmxpbi00MC5jbGVyay5hY2NvdW50cy5kZXYk"
-        src="https://saving-goblin-40.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
-        type="text/javascript">
-    </script>
-
     <script>
-        // Initialize Clerk
-        Clerk.load().then(() => {
-            if (!Clerk.user) {
-                // Redirect to sign-in if not authenticated
-                Clerk.redirectToSignIn({ afterSignInUrl: window.location.href });
-            } else {
-                // Load the admin page functionality if authenticated
-                initAdminPage();
-            }
-        });
+        const packsList = document.getElementById('packsList');
+        const addPackForm = document.getElementById('addPackForm');
 
-        function initAdminPage() {
-            const packsList = document.getElementById('packsList');
-            const addPackForm = document.getElementById('addPackForm');
+        // Load existing packs from local storage or default data
+        let texturePacks = JSON.parse(localStorage.getItem('texturePacks')) || [];
 
-            // Load existing packs from local storage or default data
-            let texturePacks = JSON.parse(localStorage.getItem('texturePacks')) || [];
+        // Function to display the packs
+        function displayPacks() {
+            packsList.innerHTML = '<h2>Current Texture Packs</h2>';
+            texturePacks.forEach((pack, index) => {
+                const packItem = document.createElement('div');
+                packItem.className = 'pack-item';
+                packItem.draggable = true;
+                packItem.dataset.index = index;
+                packItem.innerHTML = `
+                    <span>${pack.name}</span>
+                    <div>
+                        <button onclick="removePack(${index})">Remove</button>
+                    </div>
+                `;
+                packsList.appendChild(packItem);
 
-            // Function to display the packs
-            function displayPacks() {
-                packsList.innerHTML = '<h2>Current Texture Packs</h2>';
-                texturePacks.forEach((pack, index) => {
-                    const packItem = document.createElement('div');
-                    packItem.className = 'pack-item';
-                    packItem.draggable = true;
-                    packItem.dataset.index = index;
-                    packItem.innerHTML = `
-                        <span>${pack.name}</span>
-                        <div>
-                            <button onclick="removePack(${index})">Remove</button>
-                        </div>
-                    `;
-                    packsList.appendChild(packItem);
+                // Event listeners for drag and drop
+                packItem.addEventListener('dragstart', handleDragStart);
+                packItem.addEventListener('dragover', handleDragOver);
+                packItem.addEventListener('drop', handleDrop);
+                packItem.addEventListener('dragend', handleDragEnd);
+            });
+        }
 
-                    // Event listeners for drag and drop
-                    packItem.addEventListener('dragstart', handleDragStart);
-                    packItem.addEventListener('dragover', handleDragOver);
-                    packItem.addEventListener('drop', handleDrop);
-                    packItem.addEventListener('dragend', handleDragEnd);
-                });
-            }
+        // Function to remove a pack
+        function removePack(index) {
+            texturePacks.splice(index, 1);
+            localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
+            displayPacks();
+            updateIndexPage();
+        }
 
-            // Function to remove a pack
-            window.removePack = function(index) {
-                texturePacks.splice(index, 1);
-                localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
-                displayPacks();
-                updateIndexPage();
+        // Add pack form submission
+        addPackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const packName = document.getElementById('packName').value;
+            const packImage = document.getElementById('packImage').value;
+            const packLink = document.getElementById('packLink').value;
+
+            const newPack = {
+                name: packName,
+                imageUrl: packImage,
+                pageUrl: packLink
             };
 
-            // Add pack form submission
-            addPackForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const packName = document.getElementById('packName').value;
-                const packImage = document.getElementById('packImage').value;
-                const packLink = document.getElementById('packLink').value;
+            texturePacks.push(newPack);
+            localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
+            displayPacks();
+            updateIndexPage();
 
-                const newPack = {
-                    name: packName,
-                    imageUrl: packImage,
-                    pageUrl: packLink
-                };
+            addPackForm.reset(); // Clear the form
+        });
 
-                texturePacks.push(newPack);
-                localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
-                displayPacks();
-                updateIndexPage();
-
-                addPackForm.reset(); // Clear the form
+        // Function to update the index page
+        function updateIndexPage() {
+            let packsHtml = '';
+            texturePacks.forEach(pack => {
+                packsHtml += `
+                    <div class="pack" data-href="${pack.pageUrl}" data-name="${pack.name}">
+                        <img src="${pack.imageUrl}" alt="${pack.name}">
+                        <h3>${pack.name}</h3>
+                    </div>
+                `;
             });
 
-            // Function to update the index page
-            function updateIndexPage() {
-                let packsHtml = '';
-                texturePacks.forEach(pack => {
-                    packsHtml += `
-                        <div class="pack" data-href="${pack.pageUrl}" data-name="${pack.name}">
-                            <img src="${pack.imageUrl}" alt="${pack.name}">
-                            <h3>${pack.name}</h3>
-                        </div>
-                    `;
-                });
-
-                localStorage.setItem('indexPagePacks', packsHtml); // Save the packs HTML to local storage
-            }
-
-            // Drag and Drop Handlers
-            let draggedElement = null;
-
-            function handleDragStart(e) {
-                draggedElement = this;
-                setTimeout(() => {
-                    this.classList.add('dragging');
-                }, 0);
-            }
-
-            function handleDragOver(e) {
-                e.preventDefault();
-                const afterElement = getDragAfterElement(packsList, e.clientY);
-                const draggingElement = document.querySelector('.dragging');
-                if (afterElement == null) {
-                    packsList.appendChild(draggingElement);
-                } else {
-                    packsList.insertBefore(draggingElement, afterElement);
-                }
-            }
-
-            function handleDrop() {
-                this.classList.remove('dragging');
-                const newOrder = Array.from(packsList.children)
-                    .slice(1) // Skip the first child (h2 element)
-                    .map(pack => texturePacks[pack.dataset.index]);
-                texturePacks = newOrder;
-                localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
-                updateIndexPage();
-            }
-
-            function handleDragEnd() {
-                this.classList.remove('dragging');
-                draggedElement = null;
-            }
-
-            function getDragAfterElement(container, y) {
-                const draggableElements = [...container.querySelectorAll('.pack-item:not(.dragging)')];
-
-                return draggableElements.reduce((closest, child) => {
-                    const box = child.getBoundingClientRect();
-                    const offset = y - box.top - box.height / 2;
-                    if (offset < 0 && offset > closest.offset) {
-                        return { offset: offset, element: child };
-                    } else {
-                        return closest;
-                    }
-                }, { offset: Number.NEGATIVE_INFINITY }).element;
-            }
-
-            // Load packs on page load
-            displayPacks();
+            localStorage.setItem('indexPagePacks', packsHtml); // Save the packs HTML to local storage
         }
+
+        // Drag and Drop Handlers
+        let draggedElement = null;
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            setTimeout(() => {
+                this.classList.add('dragging');
+            }, 0);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(packsList, e.clientY);
+            const draggingElement = document.querySelector('.dragging');
+            if (afterElement == null) {
+                packsList.appendChild(draggingElement);
+            } else {
+                packsList.insertBefore(draggingElement, afterElement);
+            }
+        }
+
+        function handleDrop() {
+            this.classList.remove('dragging');
+            const newOrder = Array.from(packsList.children)
+                .slice(1) // Skip the first child (h2 element)
+                .map(pack => texturePacks[pack.dataset.index]);
+            texturePacks = newOrder;
+            localStorage.setItem('texturePacks', JSON.stringify(texturePacks));
+            updateIndexPage();
+        }
+
+        function handleDragEnd() {
+            this.classList.remove('dragging');
+            draggedElement = null;
+        }
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.pack-item:not(.dragging)')];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // Load packs on page load
+        window.onload = function() {
+            displayPacks();
+        };
     </script>
 </body>
 </html>
