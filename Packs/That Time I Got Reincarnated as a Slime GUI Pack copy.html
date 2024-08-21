@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That Time I Got Reincarnated as a Slime GUI Pack</title>
+    <link rel="stylesheet" href="styles2.css">
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    
+    /* Darker background on mouse-over */
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+    </style>
+</head>
+<body>
+    <header>
+       
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#packs">Texture Packs</a></li>
+                <li><a href="#photos">Features</a></li>
+                <li><a href="#information">Information</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+        <button class="download" id="downloadBtn">Download</button>
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
+    <section id="pack-details">
+        <h2 style="white-space: nowrap; overflow: visible; width: auto;">That Time I Got Reincarnated as a Slime GUI Pack</h2>
+        <img src="https://i.imgur.com/DL6yCSG.png" alt="That Time I Got Reincarnated as a Slime GUI Pack" class="pack-cover">
+    </section> 
+    <section>
+        <h2 style="white-space: nowrap; overflow: visible; width: auto;">Introduction</h2>
+        <p>This is a GUI-only resource pack themed after the show "That Time I Got Reincarnated as a Slime." You can freely use it with other resource packs by placing it on top of your existing pack. The pack features a customized palette of blue, green, and yellow, with custom images for each container, including the hot bar. Future updates may include different color schemes, such as red and purple. If you find any bugs, please report them so I can fix them promptly.</p>
+    </section>
+
+    <section>
+        <h2 style="white-space: nowrap; overflow: visible; width: auto;">Community Engagement</h2>
+        <p>Join our Discord server to suggest and vote for the next pack, participate in anime discussions, and have the chance to win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Discord Server</a></p>
+        
+    </section>
+
+    <section>
+        <h2 style="white-space: nowrap; overflow: visible; width: auto;">Feature Highlights</h2>
+        <div id="photos"class="features">
+            <div class="feature">
+                <h3>Options Menu</h3>
+                <img src="https://i.imgur.com/tjD2oA2.png" alt="Options Menu">
+            </div>
+            <div class="feature">
+                <h3>Hud</h3>
+                <img src="https://i.imgur.com/5MMPc75.png" alt="Hud">
+            </div>
+            <div class="feature">
+                <h3>Creative Menu</h3>
+                <img src="https://i.imgur.com/qPCrvYl.png" alt="Creative Menu">
+            </div>
+            <div class="feature">
+                <h3>Furnace</h3>
+                <img src="https://i.imgur.com/OIROpgj.png" alt="Furnace">
+            </div>
+            <div class="feature">
+                <h3>Chest</h3>
+                <img src="https://i.imgur.com/JRPzQ4l.png" alt="Chest">
+            </div>
+            <div class="feature">
+                <h3>Shulker Box</h3>
+                <img src="https://i.imgur.com/xeKasJa.png" alt="Shulker Box">
+            </div>
+            <div class="feature">
+                <h3>Anvil</h3>
+                <img src="https://i.imgur.com/rG933Vm.png" alt="Anvil">
+            </div>
+            <div class="feature">
+                <h3>Smoker</h3>
+                <img src="https://i.imgur.com/TvmXHJX.png" alt="Smoker">
+            </div>
+            <div class="feature">
+                <h3>Enchantment Table</h3>
+                <img src="https://i.imgur.com/0focQyW.png" alt="Enchantment Table">
+            </div>
+            <div class="feature">
+                <h3>Beacon Menu</h3>
+                <img src="https://i.imgur.com/4aQoyCX.png" alt="Beacon Menu">
+            </div>
+            <div class="feature">
+                <h3>Villager Trading Menu</h3>
+                <img src="https://i.imgur.com/xjpFCTb.png" alt="Villager Trading Menu">
+            </div>
+        </div>
+        <div style="width: 50%; margin-left: 500px;">
+            <p style="width: 50%; margin-left: 20px;">Download Link:</p>
+            <button class="btn"><i class="fa fa-download"></i> Download</button>
+        </div>
+        
+    </section>
+
+    <section id="information">
+    
+        <h2 style="white-space: nowrap; overflow: visible; width: auto;">Additional Resources</h2>
+        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+            </a>
+            <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
+                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+            </a>
+            <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Minecraft GUI Texture Packs</p>
+    </footer>
+    
+    <script>
+        // Modal functionality
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImg");
+        var captionText = document.getElementById("caption");
+        var downloadBtn = document.getElementById("downloadBtn");
+        var currentIndex = 0;
+        
+        function openModal(imgElement) {
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+            captionText.innerHTML = imgElement.alt;
+            downloadBtn.href = imgElement.src; // Set download link
+            currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
+        }
+        
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        function changeImage(n) {
+            var images = document.querySelectorAll('.feature img');
+            currentIndex = (currentIndex + n + images.length) % images.length;
+            modalImg.src = images[currentIndex].src;
+            captionText.innerHTML = images[currentIndex].alt;
+            downloadBtn.href = images[currentIndex].src; // Update download link
+        }
+        
+        // Event listeners for closing the modal
+        document.querySelector('.close').onclick = closeModal;
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Add event listeners to feature images
+        document.querySelectorAll('.feature img').forEach(img => {
+            img.onclick = function() {
+                openModal(this);
+            }
+        });
+    </script>
+</body>
+</html>
