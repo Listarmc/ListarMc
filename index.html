@@ -81,6 +81,50 @@
             display: none;
         }
 
+        h2 {
+            margin: 0;
+            color: #fcfcfc;
+            font-weight: bold;
+            text-align: center;
+            background-color: transparent;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px; /* Increase space below the heading */
+        }
+
+        /* Section styling */
+        section {
+            padding: 40px 20px;
+            background-color: rgba(12, 20, 55, 0.8);
+            color: #8FB3BB;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Mobile adjustments */
+        @media screen and (max-width: 600px) {
+            h2 {
+                position: relative; /* Remove sticky positioning */
+                top: auto; /* Reset top positioning */
+                z-index: 3;
+                background-color: transparent; /* Remove background color */
+                margin-top: 10px;
+                padding: 15px 0;
+            }
+
+            section {
+                padding: 20px 10px;
+                margin: 10px auto;
+            }
+        }
+
         /* Responsive layout for small screens */
         @media screen and (max-width: 600px) {
             .navbar a:not(:first-child) {display: none;}
