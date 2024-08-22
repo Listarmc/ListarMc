@@ -212,7 +212,9 @@
                 </button>
             </a>
         </div>
+              
     </section>
+
     <section id="information">
         <h2>Additional Resources</h2>
         <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
@@ -232,8 +234,8 @@
     <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
 </footer>
 
-
     <script>
+
         // Toggle function for mobile navigation menu
         function toggleNav() {
             var x = document.getElementById("myNavbar");
@@ -243,19 +245,19 @@
                 x.className = "navbar";
             }
         }
-
+        
         // Modal functionality
         var modal = document.getElementById("imageModal");
         var modalImg = document.getElementById("modalImg");
         var captionText = document.getElementById("caption");
         var downloadBtn = document.getElementById("downloadBtn");
         var currentIndex = 0;
-
+        
         function openModal(imgElement) {
             modal.style.display = "block";
             modalImg.src = imgElement.src;
             captionText.innerHTML = imgElement.alt;
-            downloadBtn.href = imgElement.src; // Set the download link
+            downloadBtn.href = imgElement.src; // Set download link
             currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
         }
         
@@ -263,31 +265,26 @@
             modal.style.display = "none";
         }
         
-        function changeImage(direction) {
+        function changeImage(n) {
             var images = document.querySelectorAll('.feature img');
-            currentIndex = (currentIndex + direction + images.length) % images.length;
+            currentIndex = (currentIndex + n + images.length) % images.length;
             modalImg.src = images[currentIndex].src;
             captionText.innerHTML = images[currentIndex].alt;
             downloadBtn.href = images[currentIndex].src; // Update download link
         }
-        
-        // Close modal on click outside the image
+
+        // Close modal when clicking outside of it
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
         
-        // Close modal on 'X' click
-        document.getElementsByClassName("close")[0].onclick = function() {
-            closeModal();
-        }
-        
-        // Initialize event listeners for images
-        document.querySelectorAll('.feature img').forEach(function(imgElement) {
-            imgElement.onclick = function() {
-                openModal(imgElement);
-            };
+        // Add event listeners to feature images
+        document.querySelectorAll('.feature img').forEach(img => {
+            img.onclick = function() {
+                openModal(this);
+            }
         });
     </script>
 </body>
