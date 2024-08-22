@@ -168,14 +168,6 @@
             </div>
         </div>
         <div style="width: 50%; margin: 0 auto; text-align: center;">
-            <p>Download Link</p>
-            <a href="https://legacy.curseforge.com/linkout?remoteUrl=https://listarmc.com/packs/Classroom-Of-The-Elite-Custom-GUI-Pack" target="_blank">
-                <button class="btn"><i class="fa fa-download"></i> Download</button>
-            </a>
-        </div>
-    </section>
-    <section id="information">
-        <div style="width: 50%; margin: 0 auto; text-align: center;">
             <p>Download Links</p>
             <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
                 <button class="btn download-btn orange">
@@ -186,6 +178,21 @@
                 <button class="btn download-btn green">
                     <img src="modrinth.png" alt="Icon" class="button-icon"> Download 
                 </button>
+            </a>
+        </div>
+    </section>
+
+   <section id="information">
+        <h2>Additional Resources</h2>
+        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+            </a>
+            <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
+                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+            </a>
+            <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
             </a>
         </div>
     </section>
@@ -226,27 +233,31 @@
             modal.style.display = "none";
         }
         
-        function changeImage(n) {
+        function changeImage(direction) {
             var images = document.querySelectorAll('.feature img');
-            currentIndex = (currentIndex + n + images.length) % images.length;
+            currentIndex = (currentIndex + direction + images.length) % images.length;
             modalImg.src = images[currentIndex].src;
             captionText.innerHTML = images[currentIndex].alt;
             downloadBtn.href = images[currentIndex].src; // Update download link
         }
         
-        // Event listeners for closing the modal
-        document.querySelector('.close').onclick = closeModal;
+        // Close modal on click outside the image
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
         
-        // Add event listeners to feature images
-        document.querySelectorAll('.feature img').forEach(img => {
-            img.onclick = function() {
-                openModal(this);
-            }
+        // Close modal on 'X' click
+        document.getElementsByClassName("close")[0].onclick = function() {
+            closeModal();
+        }
+        
+        // Initialize event listeners for images
+        document.querySelectorAll('.feature img').forEach(function(imgElement) {
+            imgElement.onclick = function() {
+                openModal(imgElement);
+            };
         });
     </script>
 </body>
