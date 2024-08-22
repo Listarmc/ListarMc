@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hero Academia Custom GUI Pack</title>
+    <link rel="stylesheet" href="styles2.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/gif" href="fav.gif">
+
+    <style>
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navbar items */
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #C977A8;
+            color: white;
+        }
+
+        .navbar .icon {
+            display: none;
+        }
+
+        /* Responsive layout for small screens */
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {display: none;}
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar.responsive {position: relative;}
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Center section headings */
+        h2 {
+            text-align: center;
+            display: block;
+            margin: 20px 0; /* Add some margin for spacing */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar" id="myNavbar">
+            <a href="../index.html" class="active">Home</a>
+            <a href="../index.html#packs">Texture Packs</a>
+            <a href="#photos">Features</a>
+            <a href="#information">Information</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+        <button class="download" id="downloadBtn">Download</button>
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
+    <section id="pack-details">
+        <h2>My Hero Academia Custom GUI Pack</h2>
+        <img src="https://i.imgur.com/Qh2yVTZ.png" alt="My Hero Academia Custom GUI Pack" class="pack-cover">
+    </section> 
+
+    <section>
+        <h2>Introduction</h2>
+        <p>This is a GUI-only resource pack themed towards the show "Boku no Hīrō Akademia," also known as "My Hero Academia." This pack includes changes to the hot bar and a color palette of Yellow & Blue. If you have any preferences for other colors, like Red & White, please let me know and I will consider them for future updates. If you encounter any bugs, please report them and I will fix them as soon as possible.</p>
+    </section>
+
+    <section>
+        <h2>Community Engagement</h2>
+        <p>Join our Discord server to suggest and vote for the next pack, participate in anime discussions, and have the chance to win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Discord Server</a></p>
+    </section>
+
+    <section>
+        <h2>Feature Highlights</h2>
+        <div id="photos" class="features">
+            <div class="feature">
+                <h3>HUD</h3>
+                <img src="https://i.imgur.com/bYOXSZi.png" alt="HUD">
+            </div>
+            <div class="feature">
+                <h3>Settings</h3>
+                <img src="https://i.imgur.com/zQFQ3ri.png" alt="Settings">
+            </div>
+            <div class="feature">
+                <h3>Anvil</h3>
+                <img src="https://i.imgur.com/qPKmi0t.png" alt="Anvil">
+            </div>
+            <div class="feature">
+                <h3>Crafting Table</h3>
+                <img src="https://i.imgur.com/pYOoVVA.png" alt="Crafting Table">
+            </div>
+            <div class="feature">
+                <h3>Furnace</h3>
+                <img src="https://i.imgur.com/UkMX4yx.png" alt="Furnace">
+            </div>
+            <div class="feature">
+                <h3>Stone Cutter</h3>
+                <img src="https://i.imgur.com/qlfJghQ.png" alt="Stone Cutter">
+            </div>
+            <div class="feature">
+                <h3>Cartography Table</h3>
+                <img src="https://i.imgur.com/333jyK0.png" alt="Cartography Table">
+            </div>
+            <div class="feature">
+                <h3>Brewing Stand</h3>
+                <img src="https://i.imgur.com/lhhi6qp.png" alt="Brewing Stand">
+            </div>
+            <div class="feature">
+                <h3>Shulker Box</h3>
+                <img src="https://i.imgur.com/hi6OsS3.png" alt="Shulker Box">
+            </div>
+            <div class="feature">
+                <h3>Smithing Table</h3>
+                <img src="https://i.imgur.com/O9gxjBo.png" alt="Smithing Table">
+            </div>
+            <div class="feature">
+                <h3>Grindstone</h3>
+                <img src="https://i.imgur.com/vo91lL3.png" alt="Grindstone">
+            </div>
+            <div class="feature">
+                <h3>Enchantment</h3>
+                <img src="https://i.imgur.com/DREVE7L.png" alt="Enchantment">
+            </div>
+            <div class="feature">
+                <h3>Loom</h3>
+                <img src="https://i.imgur.com/vH3HRBA.png" alt="Loom">
+            </div>
+            <div class="feature">
+                <h3>Beacon Menu</h3>
+                <img src="https://i.imgur.com/5EzVNjD.png" alt="Beacon Menu">
+            </div>
+            <div class="feature">
+                <h3>Villager Trading Menu</h3>
+                <img src="https://i.imgur.com/fqX85ID.png" alt="Villager Trading Menu">
+            </div>
+        </div>
+        <div style="width: 50%; margin: 0 auto; text-align: center;">
+            <p>Download Link</p>
+            <a href="https://legacy.curseforge.com/linkout?remoteUrl=https://listarmc.com/packs/Doki-Doki-Literature-Club!-Custom-GUI-Pack" target="_blank">
+                <button class="btn"><i class="fa fa-download"></i> Download</button>
+            </a>
+        </div>
+    </section>
+</section>
+<section id="information">
+    <h2>Additional Resources</h2>
+    <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+            <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+        </a>
+        <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
+            <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+        </a>
+        <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
+            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+        </a>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2024 ListarMc</p>
+</footer>
+
+<script>
+    // Toggle function for mobile navigation menu
+    function toggleNav() {
+        var x = document.getElementById("myNavbar");
+        if (x.className === "navbar") {
+            x.className += " responsive";
+        } else {
+            x.className = "navbar";
+        }
+    }
+
+    // Modal functionality
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImg");
+    var captionText = document.getElementById("caption");
+    var downloadBtn = document.getElementById("downloadBtn");
+    var currentIndex = 0;
+
+    function openModal(imgElement) {
+        modal.style.display = "block";
+        modalImg.src = imgElement.src;
+        captionText.innerHTML = imgElement.alt;
+        downloadBtn.href = imgElement.src; // Set the download link
+        currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
+    }
+    
+    function closeModal() {
+        modal.style.display = "none";
+    }
+    
+    function changeImage(direction) {
+        var images = document.querySelectorAll('.feature img');
+        currentIndex = (currentIndex + direction + images.length) % images.length;
+        modalImg.src = images[currentIndex].src;
+        captionText.innerHTML = images[currentIndex].alt;
+        downloadBtn.href = images[currentIndex].src; // Update download link
+    }
+    
+    // Close modal on click outside the image
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+    
+    // Close modal on 'X' click
+    document.getElementsByClassName("close")[0].onclick = function() {
+        closeModal();
+    }
+    
+    // Initialize event listeners for images
+    document.querySelectorAll('.feature img').forEach(function(imgElement) {
+        imgElement.onclick = function() {
+            openModal(imgElement);
+        };
+    });
+</script>
+</body>
+</html>
