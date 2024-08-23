@@ -11,7 +11,6 @@
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084188"></script>
     <script src="external-script.js" defer></script>
 
-   
     <style>
         .btn {
             background-color: DodgerBlue;
@@ -102,15 +101,13 @@
             cursor: pointer;
         }
     </style>
-
-
 </head>
 <body>
     <header>
         <div class="navbar" id="myNavbar">
             <a href="https://listar-mc.net/index.html" class="active">Home</a>
             <a href="https://listar-mc.net/index.html#packs">Texture Packs</a>
-            <a href="#photos">Features</a>
+            <a href="#features">Features</a>
             <a href="#information">Information</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
                 <i class="fa fa-bars"></i>
@@ -138,15 +135,14 @@
         <p>The <strong>Blue Lock Custom Minecraft GUI Pack</strong> is inspired by the intense anime "Blue Lock." This GUI-only resource pack integrates smoothly with other packs, offering a custom interface that captures the show's competitive energy. The pack features a new hot bar and container designs with a color palette of light blue, green, and purple. If you have preferences for other colors, such as red and white, feel free to suggest them for future updates.</p>
     </section>
 
-
     <section>
         <h2>Join Our Community</h2>
-        <p>Get involved with our vibrant community on Discord! Here, you can suggest and vote on new GUI pack ideas, participate in anime discussions, and even win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join our Discord server</a>.</p>
+        <p>Become a part of our vibrant community on Discord! Here, you can suggest and vote on new GUI pack ideas, participate in anime discussions, and even win Discord Nitro giveaways every month. Connect with other Minecraft and anime enthusiasts and share your love for <em>Blue Lock</em>. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join our Discord server</a>.</p>
     </section>
 
     <section>
         <h2>Key Features of the Blue Lock GUI Pack</h2>
-        <div id="photos" class="features">
+        <div id="features" class="features">
             <div class="feature">
                 <h3>Settings Menu</h3>
                 <img src="https://i.imgur.com/9IFkbmw.png" alt="Blue Lock Settings Menu in Minecraft">
@@ -197,13 +193,13 @@
             </div>
         </div>
         <div style="width: 50%; margin: 0 auto; text-align: center;">
-            <p>Download the Bleach GUI Pack</p>
-            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+            <p>Download the Blue Lock GUI Pack</p>
+            <a href="https://www.curseforge.com/minecraft/texture-packs/bleach-gui-pack" target="_blank">
                 <button class="btn download-btn orange">
                     <img src="curseforge-svgrepo-com.png" alt="CurseForge Download Icon" class="button-icon"> Download via CurseForge
                 </button>
             </a>
-            <a href="https://example.com/second-download" target="_blank">
+            <a href="https://modrinth.com/resourcepack/bleach-gui-pack" target="_blank">
                 <button class="btn download-btn green">
                     <img src="modrinth.png" alt="Modrinth Download Icon" class="button-icon"> Download via Modrinth
                 </button>
@@ -226,11 +222,27 @@
         </div>
     </section>
     
+    <section id="information">
+        <h2>Support and Additional Resources</h2>
+        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+            </a>
+            <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
+                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+            </a>
+            <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+            </a>
+        </div>
+    </section>
+    
 <footer>
     <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
 </footer>
 
     <script>
+        // Responsive navbar script
         function toggleNav() {
             var x = document.getElementById("myNavbar");
             if (x.className === "navbar") {
@@ -240,6 +252,7 @@
             }
         }
         
+        // Modal functionality
         var modal = document.getElementById("imageModal");
         var modalImg = document.getElementById("modalImg");
         var captionText = document.getElementById("caption");
@@ -251,13 +264,8 @@
             modalImg.src = imgElement.src;
             captionText.innerHTML = imgElement.alt;
             downloadBtn.href = imgElement.src;
-            currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
         }
-        
-        function closeModal() {
-            modal.style.display = "none";
-        }
-        
+
         function changeImage(n) {
             var images = document.querySelectorAll('.feature img');
             currentIndex = (currentIndex + n + images.length) % images.length;
@@ -266,17 +274,14 @@
             downloadBtn.href = images[currentIndex].src;
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        
-        document.querySelectorAll('.feature img').forEach(img => {
-            img.onclick = function() {
-                openModal(this);
-            }
+        document.querySelectorAll('.feature img').forEach((img) => {
+            img.onclick = () => openModal(img);
         });
+
+        document.querySelector('.modal .close').onclick = () => {
+            modal.style.display = "none";
+        };
     </script>
 </body>
 </html>
+

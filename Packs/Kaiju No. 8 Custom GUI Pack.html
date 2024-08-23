@@ -191,23 +191,25 @@
     </section>
     <section id="information">
         <h2>Support and Additional Resources</h2>
-        <div class="resources-grid">
+        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
             <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
-                <img src="coffe.png" class="coffee-img" alt="Support ListarMC via Buy Me a Coffee">
+                <img src="coffe.png" class="coffee-img" alt="Support via Buy Me a Coffee">
             </a>
             <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
-                <img src="PMC.webp" class="PMC-img" alt="Support ListarMC on Planet Minecraft">
+                <img src="PMC.webp" class="PMC-img" alt="Support on Planet Minecraft">
             </a>
             <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
-                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Join ListarMC Discord Server">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Join our Discord Server">
             </a>
         </div>
     </section>
+
     <footer>
         <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
     </footer>
     
         <script>
+            // Responsive navbar script
             function toggleNav() {
                 var x = document.getElementById("myNavbar");
                 if (x.className === "navbar") {
@@ -217,6 +219,7 @@
                 }
             }
             
+            // Modal functionality
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("modalImg");
             var captionText = document.getElementById("caption");
@@ -228,13 +231,8 @@
                 modalImg.src = imgElement.src;
                 captionText.innerHTML = imgElement.alt;
                 downloadBtn.href = imgElement.src;
-                currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
             }
-            
-            function closeModal() {
-                modal.style.display = "none";
-            }
-            
+    
             function changeImage(n) {
                 var images = document.querySelectorAll('.feature img');
                 currentIndex = (currentIndex + n + images.length) % images.length;
@@ -243,17 +241,14 @@
                 downloadBtn.href = images[currentIndex].src;
             }
     
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    closeModal();
-                }
-            }
-            
-            document.querySelectorAll('.feature img').forEach(img => {
-                img.onclick = function() {
-                    openModal(this);
-                }
+            document.querySelectorAll('.feature img').forEach((img) => {
+                img.onclick = () => openModal(img);
             });
+    
+            document.querySelector('.modal .close').onclick = () => {
+                modal.style.display = "none";
+            };
         </script>
     </body>
     </html>
+    

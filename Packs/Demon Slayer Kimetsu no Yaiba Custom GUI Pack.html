@@ -198,13 +198,13 @@
             </a>
         </div>
     </section>
-
     
     <footer>
         <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
     </footer>
     
         <script>
+            // Responsive navbar script
             function toggleNav() {
                 var x = document.getElementById("myNavbar");
                 if (x.className === "navbar") {
@@ -214,6 +214,7 @@
                 }
             }
             
+            // Modal functionality
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("modalImg");
             var captionText = document.getElementById("caption");
@@ -225,13 +226,8 @@
                 modalImg.src = imgElement.src;
                 captionText.innerHTML = imgElement.alt;
                 downloadBtn.href = imgElement.src;
-                currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
             }
-            
-            function closeModal() {
-                modal.style.display = "none";
-            }
-            
+    
             function changeImage(n) {
                 var images = document.querySelectorAll('.feature img');
                 currentIndex = (currentIndex + n + images.length) % images.length;
@@ -240,17 +236,13 @@
                 downloadBtn.href = images[currentIndex].src;
             }
     
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    closeModal();
-                }
-            }
-            
-            document.querySelectorAll('.feature img').forEach(img => {
-                img.onclick = function() {
-                    openModal(this);
-                }
+            document.querySelectorAll('.feature img').forEach((img) => {
+                img.onclick = () => openModal(img);
             });
+    
+            document.querySelector('.modal .close').onclick = () => {
+                modal.style.display = "none";
+            };
         </script>
     </body>
     </html>

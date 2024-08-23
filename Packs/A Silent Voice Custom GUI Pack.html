@@ -89,7 +89,7 @@
         <div class="navbar" id="myNavbar">
             <a href="https://listar-mc.net/index.html" class="active">Home</a>
             <a href="https://listar-mc.net/index.html#packs">Texture Packs</a>
-            <a href="#photos">Features</a>
+            <a href="#features">Features</a>
             <a href="#information">Information</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
                 <i class="fa fa-bars"></i>
@@ -110,6 +110,7 @@
     <section id="pack-details">
         <h2>A Silent Voice Custom Minecraft GUI Pack</h2>
         <img src="https://i.imgur.com/lr0zgwd.png" alt="A Silent Voice Custom Minecraft GUI Pack Cover" class="pack-cover">
+        <p>Immerse yourself in the serene world of the <strong>A Silent Voice Custom Minecraft GUI Pack</strong>, featuring unique textures inspired by the heartfelt anime. This pack brings a calming brown and light blue color palette to your Minecraft experience, perfect for fans of both Minecraft and A Silent Voice. Enjoy redesigned elements like the hot bar and various containers, all carefully crafted to enhance your gameplay.</p>
     </section> 
 
     <section>
@@ -117,14 +118,15 @@
         <p>The <strong>A Silent Voice Custom Minecraft GUI Pack</strong> brings the emotion and beauty of the beloved anime movie "A Silent Voice" into your Minecraft experience. This pack features a calming brown and light blue color palette, reflecting the movie's themes of introspection and connection. Key elements like the hot bar and various containers have been thoughtfully redesigned. If you encounter any bugs or issues, please report them on our Discord server, and we will address them promptly.</p>
     </section>
 
+ 
     <section>
         <h2>Join Our Community</h2>
-        <p>Get involved with our vibrant community on Discord! Here, you can suggest and vote on new GUI pack ideas, participate in anime discussions, and even win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join our Discord server</a>.</p>
+        <p>Become a part of our growing community by joining our Discord server! Here, you can suggest and vote on new GUI pack ideas, engage in anime discussions, and participate in monthly Discord Nitro giveaways. Connect with other Minecraft and anime enthusiasts and share your love for <em>A Silent Voice</em>. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join the Discord Server</a></p>
     </section>
 
     <section>
         <h2>Key Features of A Silent Voice GUI Pack</h2>
-        <div id="photos" class="features">
+        <div id="features" class="features">
             <div class="feature">
                 <h3>Custom HUD</h3>
                 <img src="https://i.imgur.com/0wToizW.png" alt="A Silent Voice Custom HUD in Minecraft">
@@ -184,12 +186,12 @@
         </div>
         <div style="width: 50%; margin: 0 auto; text-align: center;">
             <p>Download the A Silent Voice GUI Pack</p>
-            <a href="https://www.curseforge.com/minecraft/texture-packs/a-silent-voice-custom-gui-pack/files/4965942" target="_blank">
+            <a href="https://www.curseforge.com/minecraft/texture-packs/your-lie-in-april-gui-pack" target="_blank">
                 <button class="btn download-btn orange">
                     <img src="curseforge-svgrepo-com.png" alt="CurseForge Download Icon" class="button-icon"> Download via CurseForge
                 </button>
             </a>
-            <a href="https://modrinth.com/resourcepack/a-silent-voice-custom-gui-pack" target="_blank">
+            <a href="https://modrinth.com/resourcepack/your-lie-in-april-gui-pack" target="_blank">
                 <button class="btn download-btn green">
                     <img src="modrinth.png" alt="Modrinth Download Icon" class="button-icon"> Download via Modrinth
                 </button>
@@ -201,13 +203,13 @@
         <h2>Support and Additional Resources</h2>
         <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
             <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
-                <img src="coffe.png" class="coffee-img" alt="Support ListarMC via Buy Me a Coffee">
+                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
             </a>
             <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
-                <img src="PMC.webp" class="PMC-img" alt="Support ListarMC on Planet Minecraft">
+                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
             </a>
             <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
-                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Join ListarMC Discord Server">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
             </a>
         </div>
     </section>
@@ -217,6 +219,7 @@
 </footer>
 
     <script>
+        // Responsive navbar script
         function toggleNav() {
             var x = document.getElementById("myNavbar");
             if (x.className === "navbar") {
@@ -226,6 +229,7 @@
             }
         }
         
+        // Modal functionality
         var modal = document.getElementById("imageModal");
         var modalImg = document.getElementById("modalImg");
         var captionText = document.getElementById("caption");
@@ -237,13 +241,8 @@
             modalImg.src = imgElement.src;
             captionText.innerHTML = imgElement.alt;
             downloadBtn.href = imgElement.src;
-            currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
         }
-        
-        function closeModal() {
-            modal.style.display = "none";
-        }
-        
+
         function changeImage(n) {
             var images = document.querySelectorAll('.feature img');
             currentIndex = (currentIndex + n + images.length) % images.length;
@@ -252,17 +251,13 @@
             downloadBtn.href = images[currentIndex].src;
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        
-        document.querySelectorAll('.feature img').forEach(img => {
-            img.onclick = function() {
-                openModal(this);
-            }
+        document.querySelectorAll('.feature img').forEach((img) => {
+            img.onclick = () => openModal(img);
         });
+
+        document.querySelector('.modal .close').onclick = () => {
+            modal.style.display = "none";
+        };
     </script>
 </body>
 </html>

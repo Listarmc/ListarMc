@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wilder Forest Custom GUI Pack</title>
+    <title>The Wilder Forest Minecraft GUI Pack - Download & Features</title>
+    <meta name="description" content="Download The Wilder Forest Minecraft GUI Pack. Customize your Minecraft experience with this GUI pack inspired by nature and wildlife. Join our community for updates and exclusive content.">
     <link rel="stylesheet" href="styles2.css">
-    <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/gif" href="fav.gif">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084188"></script>
     <script src="external-script.js" defer></script>
+
     <style>
         .btn {
             background-color: DodgerBlue;
@@ -20,15 +21,13 @@
             font-size: 20px;
         }
         
-        /* Darker background on mouse-over */
         .btn:hover {
             background-color: RoyalBlue;
         }
 
-        /* Navbar styling */
         .navbar {
             display: flex;
-            justify-content: center; /* Center the navbar items */
+            justify-content: center;
             background-color: #333;
             overflow: hidden;
         }
@@ -56,7 +55,6 @@
             display: none;
         }
 
-        /* Responsive layout for small screens */
         @media screen and (max-width: 600px) {
             .navbar a:not(:first-child) {display: none;}
             .navbar a.icon {
@@ -79,12 +77,41 @@
             }
         }
 
-        /* Center section headings */
         h2 {
             text-align: center;
-            display: block;
-            margin: 20px 0; /* Add some margin for spacing */
+            margin: 20px 0;
             width: 100%;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .resources-grid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .resources-grid a img {
+            width: 150px;
+            height: auto;
         }
     </style>
 </head>
@@ -93,7 +120,7 @@
         <div class="navbar" id="myNavbar">
             <a href="https://listar-mc.net/index.html" class="active">Home</a>
             <a href="https://listar-mc.net/index.html#packs">Texture Packs</a>
-            <a href="#photos">Features</a>
+            <a href="#features">Features</a>
             <a href="#information">Information</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
                 <i class="fa fa-bars"></i>
@@ -104,7 +131,7 @@
     <!-- Modal Structure -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg">
+        <img class="modal-content" id="modalImg" alt="Expanded GUI Image">
         <div id="caption"></div>
         <button class="download" id="downloadBtn">Download</button>
         <button class="prev" onclick="changeImage(-1)">&#10094;</button>
@@ -112,83 +139,88 @@
     </div>
 
     <section id="pack-details">
-        <h2>The Wilder Forest Custom GUI Pack</h2>
-        <img src="https://i.imgur.com/SoqWkel.png" alt="The Wilder Forest Custom GUI Pack" class="pack-cover">
+        <h2>The Wilder Forest Minecraft GUI Pack</h2>
+        <img src="https://i.imgur.com/SoqWkel.png" alt="The Wilder Forest Minecraft GUI Pack" class="pack-cover">
+        <p>Immerse yourself in the wilderness with the <strong>The Wilder Forest Minecraft GUI Pack</strong>. This resource pack transforms your Minecraft interface with designs inspired by nature and wildlife. It can be layered over other resource packs for a unique and earthy experience.</p>
     </section> 
 
     <section>
-        <h2>Introduction</h2>
-        <p>This is a GUI pack themed towards the wild life. I've worked hard on this pack, including changes to the hot bar. I hope you enjoy the new design! The current palette features earthy tones, but if you have any suggestions for other colors or themes, please let me know and I'll consider them for future updates. If you find any bugs, please report them and I'll address them as soon as possible.</p>
+        <h2>About the GUI Pack</h2>
+        <p>The <strong>Wilder Forest GUI Pack</strong> is a GUI-only resource pack that brings the beauty of nature to your Minecraft interface. With a palette featuring earthy tones, this pack is designed to work seamlessly with your existing resource packs. You can suggest other colors or themes for future updates, and your feedback is always welcome!</p>
+        <p>If you encounter any bugs or have suggestions, please report them on our Discord server, and we'll address them as quickly as possible.</p>
     </section>
+
     <section>
-        <h2>Community Engagement</h2>
-        <p>Join our Discord server to suggest and vote for the next pack, participate in anime discussions, and have the chance to win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Discord Server</a></p>
+        <h2>Join Our Community</h2>
+        <p>Become a part of our growing community by joining our Discord server! Here, you can suggest and vote on new GUI pack ideas, engage in discussions about nature and wildlife, and participate in monthly Discord Nitro giveaways. Connect with other Minecraft enthusiasts who share your love for the wilderness. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join the Discord Server</a></p>
     </section>
+
     <section>
-        <h2>Feature Highlights</h2>
-        <div id="photos" class="features">
+        <h2>Features of The Wilder Forest GUI Pack</h2>
+        <div id="features" class="features">
             <div class="feature">
                 <h3>Menu Options</h3>
-                <img src="https://i.imgur.com/EtcGbFn.png" alt="Menu Options">
+                <img src="https://i.imgur.com/EtcGbFn.png" alt="Custom Menu Options with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>HUD</h3>
-                <img src="https://i.imgur.com/ltT2FyH.png" alt="HUD">
+                <img src="https://i.imgur.com/ltT2FyH.png" alt="Custom HUD with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Inventory</h3>
-                <img src="https://i.imgur.com/0NfIyQ8.png" alt="Inventory">
+                <img src="https://i.imgur.com/0NfIyQ8.png" alt="Custom Inventory with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Anvil</h3>
-                <img src="https://i.imgur.com/nZX193o.png" alt="Anvil">
+                <img src="https://i.imgur.com/nZX193o.png" alt="Anvil GUI with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Large Chest</h3>
-                <img src="https://i.imgur.com/I1BwLIs.png" alt="Large Chest">
+                <img src="https://i.imgur.com/I1BwLIs.png" alt="Large Chest with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Shulker Box</h3>
-                <img src="https://i.imgur.com/GdEqGFS.png" alt="Shulker Box">
+                <img src="https://i.imgur.com/GdEqGFS.png" alt="Shulker Box with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Brewing Stand</h3>
-                <img src="https://i.imgur.com/2KRrkSi.png" alt="Brewing Stand">
+                <img src="https://i.imgur.com/2KRrkSi.png" alt="Brewing Stand with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Beacon Menu</h3>
-                <img src="https://i.imgur.com/mSSYeZB.png" alt="Beacon Menu">
+                <img src="https://i.imgur.com/mSSYeZB.png" alt="Beacon Menu with Wilder Forest Theme">
             </div>
             <div class="feature">
                 <h3>Villager Trading Option</h3>
-                <img src="https://i.imgur.com/lVKZoUw.png" alt="Villager Trading Option">
+                <img src="https://i.imgur.com/lVKZoUw.png" alt="Villager Trading Option with Wilder Forest Theme">
             </div>
         </div>
         <div style="width: 50%; margin: 0 auto; text-align: center;">
-            <p>Download Links</p>
-            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+            <p>Download The Wilder Forest GUI Pack</p>
+            <a href="https://www.curseforge.com/minecraft/texture-packs/wilder-forest-gui-pack" target="_blank">
                 <button class="btn download-btn orange">
-                    <img src="curseforge-svgrepo-com.png" alt="Icon" class="button-icon"> Download
+                    <img src="curseforge-svgrepo-com.png" alt="CurseForge Download Icon" class="button-icon"> Download via CurseForge
                 </button>
             </a>
-            <a href="https://example.com/second-download" target="_blank">
+            <a href="https://modrinth.com/resourcepack/wilder-forest-gui-pack" target="_blank">
                 <button class="btn download-btn green">
-                    <img src="modrinth.png" alt="Icon" class="button-icon"> Download 
+                    <img src="modrinth.png" alt="Modrinth Download Icon" class="button-icon"> Download via Modrinth
                 </button>
             </a>
         </div>
     </section>
+
     <section id="information">
         <h2>Additional Resources</h2>
-        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <div class="resources-grid">
             <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
-                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+                <img src="coffe.png" class="coffee-img" alt="Support via Buy Me a Coffee">
             </a>
             <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
-                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+                <img src="PMC.webp" class="PMC-img" alt="Support via Planet Minecraft">
             </a>
             <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
-                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Join Our Discord Server">
             </a>
         </div>
     </section>
@@ -197,9 +229,7 @@
     <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
 </footer>
 
-
     <script>
-        // Toggle function for mobile navigation menu
         function toggleNav() {
             var x = document.getElementById("myNavbar");
             if (x.className === "navbar") {
@@ -209,7 +239,6 @@
             }
         }
 
-        // Modal functionality
         var modal = document.getElementById("imageModal");
         var modalImg = document.getElementById("modalImg");
         var captionText = document.getElementById("caption");
@@ -220,7 +249,7 @@
             modal.style.display = "block";
             modalImg.src = imgElement.src;
             captionText.innerHTML = imgElement.alt;
-            downloadBtn.href = imgElement.src; // Set the download link
+            downloadBtn.href = imgElement.src;
             currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
         }
         
@@ -233,22 +262,19 @@
             currentIndex = (currentIndex + direction + images.length) % images.length;
             modalImg.src = images[currentIndex].src;
             captionText.innerHTML = images[currentIndex].alt;
-            downloadBtn.href = images[currentIndex].src; // Update download link
+            downloadBtn.href = images[currentIndex].src;
         }
         
-        // Close modal on click outside the image
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
         
-        // Close modal on 'X' click
         document.getElementsByClassName("close")[0].onclick = function() {
             closeModal();
         }
         
-        // Initialize event listeners for images
         document.querySelectorAll('.feature img').forEach(function(imgElement) {
             imgElement.onclick = function() {
                 openModal(imgElement);
@@ -256,3 +282,4 @@
         });
     </script>
 </body>
+</html>

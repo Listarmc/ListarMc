@@ -119,7 +119,7 @@
 
     <section>
         <h2>Join Our Community</h2>
-        <p>Get involved with our vibrant community on Discord! Here, you can suggest and vote on new GUI pack ideas, participate in anime discussions, and even win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join our Discord server</a>.</p>
+        <p>Become a part of our growing community by joining our Discord server! Here, you can suggest and vote on new GUI pack ideas, engage in anime discussions, and participate in monthly Discord Nitro giveaways. Connect with other Minecraft and anime enthusiasts and share your love for <em>Classroom of the Elite</em>. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join the Discord Server</a></p>
     </section>
     <section>
         <h2>Key Features of the Classroom of the Elite GUI Pack</h2>
@@ -195,57 +195,51 @@
         </div>
     </section>
 
-<footer>
-    <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
-</footer>
-
-    <script>
-        function toggleNav() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
+    <footer>
+        <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
+    </footer>
+    
+        <script>
+            // Responsive navbar script
+            function toggleNav() {
+                var x = document.getElementById("myNavbar");
+                if (x.className === "navbar") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "navbar";
+                }
             }
-        }
-        
-        var modal = document.getElementById("imageModal");
-        var modalImg = document.getElementById("modalImg");
-        var captionText = document.getElementById("caption");
-        var downloadBtn = document.getElementById("downloadBtn");
-        var currentIndex = 0;
-        
-        function openModal(imgElement) {
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-            captionText.innerHTML = imgElement.alt;
-            downloadBtn.href = imgElement.src;
-            currentIndex = Array.from(document.querySelectorAll('.feature img')).indexOf(imgElement);
-        }
-        
-        function closeModal() {
-            modal.style.display = "none";
-        }
-        
-        function changeImage(n) {
-            var images = document.querySelectorAll('.feature img');
-            currentIndex = (currentIndex + n + images.length) % images.length;
-            modalImg.src = images[currentIndex].src;
-            captionText.innerHTML = images[currentIndex].alt;
-            downloadBtn.href = images[currentIndex].src;
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
+            
+            // Modal functionality
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImg");
+            var captionText = document.getElementById("caption");
+            var downloadBtn = document.getElementById("downloadBtn");
+            var currentIndex = 0;
+            
+            function openModal(imgElement) {
+                modal.style.display = "block";
+                modalImg.src = imgElement.src;
+                captionText.innerHTML = imgElement.alt;
+                downloadBtn.href = imgElement.src;
             }
-        }
-        
-        document.querySelectorAll('.feature img').forEach(img => {
-            img.onclick = function() {
-                openModal(this);
+    
+            function changeImage(n) {
+                var images = document.querySelectorAll('.feature img');
+                currentIndex = (currentIndex + n + images.length) % images.length;
+                modalImg.src = images[currentIndex].src;
+                captionText.innerHTML = images[currentIndex].alt;
+                downloadBtn.href = images[currentIndex].src;
             }
-        });
-    </script>
-</body>
-</html>
+    
+            document.querySelectorAll('.feature img').forEach((img) => {
+                img.onclick = () => openModal(img);
+            });
+    
+            document.querySelector('.modal .close').onclick = () => {
+                modal.style.display = "none";
+            };
+        </script>
+    </body>
+    </html>
+    
