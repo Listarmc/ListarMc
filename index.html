@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar's Minecraft GUI Pack</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/gif" href="fav.gif">
+     
+
+    <style>
+        /* Navbar styling */
+
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+
+        /* Styles for the search bar */
+        .search-bar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 2px solid #C977A8;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-bar input[type="text"]:focus {
+            border-color: #8FB3BB;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navbar items */
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #8A2BE2;
+            color: white;
+        }
+
+        .navbar .icon {
+            display: none;
+        }
+
+        h2 {
+            margin: 0;
+            color: #fcfcfc;
+            font-weight: bold;
+            text-align: center;
+            background-color: transparent;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px; /* Increase space below the heading */
+        }
+
+        /* Section styling */
+        section {
+            padding: 40px 20px;
+            background-color: rgba(12, 20, 55, 0.8);
+            color: #8FB3BB;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Mobile adjustments */
+        @media screen and (max-width: 600px) {
+            h2 {
+                position: relative; /* Remove sticky positioning */
+                top: auto; /* Reset top positioning */
+                z-index: 3;
+                background-color: transparent; /* Remove background color */
+                margin-top: 10px;
+                padding: 15px 0;
+            }
+
+            section {
+                padding: 20px 10px;
+                margin: 10px auto;
+            }
+        }
+
+        /* Responsive layout for small screens */
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {display: none;}
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar.responsive {position: relative;}
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Center section headings */
+        h2 {
+            text-align: center;
+            width: 100%; /* Ensure full-width centering */
+            margin: 20px 0; /* Add some margin for spacing */
+        }
+
+        /* Responsive layout adjustments */
+        @media screen and (max-width: 600px) {
+            #home {
+                flex-direction: column; /* Stack the elements vertically */
+                align-items: center; /* Center align the elements */
+                text-align: center; /* Center the text */
+            }
+
+            #home > div:first-child {
+                margin: 0 0 20px 0; /* Remove left margin and add bottom margin */
+                width: 100%; /* Make it full width */
+            }
+
+            #home img {
+                margin-bottom: 20px; /* Add margin below the logo */
+            }
+
+            .discord-widget {
+                width: 100%; /* Make it full width */
+                margin: 20px 0; /* Add top and bottom margin */
+            }
+
+            /* Make the packs grid layout responsive */
+            .packs-grid {
+                grid-template-columns: 1fr; /* Change to a single column layout */
+                gap: 15px; /* Adjust the gap for better spacing on small screens */
+            }
+
+            /* Ensure images and text in the packs align well in mobile view */
+            .pack {
+                text-align: center; /* Center text for a cleaner mobile layout */
+            }
+
+            .pack img {
+                max-width: 80%; /* Adjust image size for mobile */
+                margin: 0 auto; /* Center the images */
+            }
+        }
+    </style>
+
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084188"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar" id="myNavbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="#packs">Texture Packs</a>
+            <a href="#information">Information</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    <section id="home" style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="display: flex; align-items: center; margin-top: 30px; margin-left: 25px;">
+            <img src="logo.gif" alt="My Logo" class="logo" style="width: 300px; height: auto; margin-right: 20px;">
+            <div style="width: 350px; height: auto; margin-right: 20px;">
+                <h1 style="color:#C977A8; font-size: xx-large;">Welcome to My Minecraft GUI Texture Packs</h1>
+                <p>Explore my collection of custom GUI textures for Minecraft themed around the most popular Japanese anime's.</p>
+            </div>
+        </div>
+        <div class="discord-widget" style="flex-shrink: 0; width: 350px; padding: 20px; margin-top: 50px; margin-right: 25px;">
+            <iframe src="https://discord.com/widget?id=1136933549669351434&theme=dark" 
+            width="100%" height="250" allowtransparency="true" frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search texture packs...">
+    </div>
+
+    <section id="packs">
+        <h2>Texture Packs</h2>
+        <div class="packs-grid" id="packs-grid">
+            <div class="pack" data-href="Packs/That Time I Got Reincarnated as a Slime GUI Pack.html" data-name="That Time I Got Reincarnated as a Slime">
+                <img src="https://i.imgur.com/DL6yCSG.png" alt="That Time I Got Reincarnated as a Slime">
+                <h3>That Time I Got Reincarnated as a Slime</h3>
+                <!-- <span class="tag">1.21</span> -->
+            </div>
+            <div class="pack" data-href="Packs/Invincible Custom GUI Pack.html" data-name="Invincible GUI Pack">
+                <img src="https://i.imgur.com/UkAV52h.png" alt="Invincible GUI Pack">
+                <h3>Invincible GUI Pack</h3>
+                <!-- <span class="tag">1.21</span> -->
+            </div>
+            <div class="pack" data-href="Packs/Kaiju No. 8 Custom GUI Pack.html" data-name="Kaiju No. 8 Custom GUI Pack">
+                <img src="https://i.imgur.com/FIXcv9l.png" alt="Kaiju No. 8 Custom GUI Pack">
+                <h3>Kaiju No. 8 Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Solo Leveling Custom GUI.html" data-name="Solo Leveling Custom GUI">
+                <img src="https://i.imgur.com/2IKdvnv.png" alt="Solo Leveling Custom GUI">
+                <h3>Solo Leveling Custom GUI</h3>
+            </div>
+            <div class="pack" data-href="Packs/Kill la Kill Custom GUI Pack.html" data-name="Kill la Kill Custom GUI Pack">
+                <img src="https://i.imgur.com/ulkNDzb.png" alt="Kill la Kill Custom GUI Pack">
+                <h3>Kill la Kill Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Demon Slayer Kimetsu no Yaiba Custom GUI Pack.html" data-name="Demon Slayer Kimetsu no Yaiba Custom GUI Pack">
+                <img src="https://i.imgur.com/UoRcApc.png" alt="Demon Slayer Kimetsu no Yaiba Custom GUI Pack">
+                <h3>Demon Slayer Kimetsu no Yaiba Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Chainsaw Man Custom GUI Pack.html" data-name="Chainsaw Man Custom GUI Pack">
+                <img src="https://d1unuvan7ts7ur.cloudfront.net/1500x0/filters:strip_exif()/2e744661-b813-4c94-ab1c-ffef1c6e6f8d/01HMDTBFYXVSHS6CM71A5TDF3T" alt="Chainsaw Man Custom GUI Pack">
+                <h3>Chainsaw Man Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Mushoku Tensei Jobless Reincarnation Custom GUI Pack.html" data-name="Mushoku Tensei Jobless Reincarnation Custom GUI Pack">
+                <img src="https://i.imgur.com/hBmCUPA.png" alt="Mushoku Tensei Jobless Reincarnation Custom GUI Pack">
+                <h3>Mushoku Tensei Jobless Reincarnation Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Black Clover Custom GUI Pack.html" data-name="Black Clover Custom GUI Pack">
+                <img src="https://i.imgur.com/GRaLDkC.jpg" alt="Black Clover Custom GUI Pack">
+                <h3>Black Clover Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Frieren Beyond Journey's End GUI Pack.html" data-name="Frieren Beyond Journey's End GUI Pack">
+                <img src="https://i.imgur.com/bdUUpR7.png" alt="Frieren Beyond Journey's End GUI Pack">
+                <h3>Frieren Beyond Journey's End GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Wonder Egg Priority Custom GUI Pack.html" data-name="Wonder Egg Priority Custom GUI Pack">
+                <img src="https://i.imgur.com/6B5ZMiu.png" alt="Wonder Egg Priority Custom GUI Pack">
+                <h3>Wonder Egg Priority Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Charlotte Custom GUI Pack.html" data-name="Charlotte Custom GUI Pack">
+                <img src="https://i.imgur.com/x4cvET9.png" alt="Charlotte Custom GUI Pack">
+                <h3>Charlotte Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Your Lie in April Custom GUI Pack.html" data-name="Your Lie in April Custom GUI Pack">
+                <img src="https://i.imgur.com/UKZx6tm.png" alt="Your Lie in April Custom GUI Pack">
+                <h3>Your Lie in April Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/A Silent Voice Custom GUI Pack.html" data-name="A Silent Voice Custom GUI Pack">
+                <img src="https://i.imgur.com/lr0zgwd.png" alt="A Silent Voice Custom GUI Pack">
+                <h3>A Silent Voice Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Toradora! Custom GUI Pack.html" data-name="Toradora! Custom GUI Pack">
+                <img src="https://i.imgur.com/mFjVNPm.png" alt="Toradora! Custom GUI Pack">
+                <h3>Toradora! Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Bleach Custom GUI Pack.html" data-name="Bleach Custom GUI Pack">
+                <img src="https://wsrv.nl/?url=https%3A%2F%2Fimg34.picturelol.com%2Fth%2F57470%2Fawth92dyashv.jpg&n=-1" alt="Bleach Custom GUI Pack">
+                <h3>Bleach Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Jujutsu Kaisen Custom GUI Pack.html" data-name="Jujutsu Kaisen Custom GUI Pack">
+                <img src="https://i.imgur.com/D2eqkVh.png" alt="Jujutsu Kaisen Custom GUI Pack">
+                <h3>Jujutsu Kaisen Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Masamune-Kun's Revenge Custom GUI Pack.html" data-name="Masamune-Kun's Revenge Custom GUI Pack">
+                <img src="https://i.imgur.com/Mg8U8XI.png" alt="Masamune-Kun's Revenge Custom GUI Pack">
+                <h3>Masamune-Kun's Revenge Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Horimiya Custom GUI Pack.html" data-name="Horimiya Custom GUI Pack">
+                <img src="https://i.imgur.com/Xwb2E8x.png" alt="Horimiya Custom GUI Pack">
+                <h3>Horimiya Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Spy x Family GUI Pack.html" data-name="Spy x Family GUI Pack">
+                <img src="https://i.imgur.com/QTXpJWs.png" alt="Spy x Family GUI Pack">
+                <h3>Spy x Family GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Ranking of Kings Custom GUI Pack.html" data-name="Ranking of Kings Custom GUI Pack">
+                <img src="https://i.imgur.com/AMSbb5S.png" alt="Ranking of Kings Custom GUI Pack">
+                <h3>Ranking of Kings Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Shikimori's Not Just a Cutie Custom GUI Pack.html" data-name="Shikimori's Not Just a Cutie Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/mNMjuqNG/images/675da4e55e8d5179fb87ee9f1af4c12cfaee89e8.png" alt="Shikimori's Not Just a Cutie Custom GUI Pack">
+                <h3>Shikimori's Not Just a Cutie Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/The Quintessential Quintuplets Custom GUI Pack.html" data-name="The Quintessential Quintuplets Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/d8PjFigd/images/77daff16bdda27a12d787f8a3a020e4feccdcb19.png" alt="The Quintessential Quintuplets Custom GUI Pack">
+                <h3>The Quintessential Quintuplets Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/KonoSuba Custom GUI Pack.html" data-name="KonoSuba Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/1tRakPkj/images/662f94673bb57bcbfd0d969f566cf3e07270bb12.png" alt="KonoSuba Custom GUI Pack">
+                <h3>KonoSuba Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Oshi no ko one! Custom GUI Pack.html" data-name="Oshi no ko one! Custom GUI Pack">
+                <img src="https://i.imgur.com/CoBiozQ.png" alt="Oshi no ko one! Custom GUI Pack">
+                <h3>Oshi no ko one! Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/No Game No Life Custom GUI Pack.html" data-name="No Game No Life Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/s62P3j27/images/61bc57a57ecb0ceb1d98eb558912e47bce462910.png" alt="No Game No Life Custom GUI Pack">
+                <h3>No Game No Life Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Bocchi the Rock! Custom GUI Pack.html" data-name="Bocchi the Rock! Custom GUI Pack">
+                <img src="https://i.imgur.com/pfOzN5K.png" alt="Bocchi the Rock! Custom GUI Pack">
+                <h3>Bocchi the Rock! Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Fullmetal Alchemist Brotherhood Custom GUI Pack.html" data-name="Fullmetal Alchemist Brotherhood Custom GUI Pack">
+                <img src="https://i.imgur.com/mwzjM2U.png" alt="Fullmetal Alchemist Brotherhood Custom GUI Pack">
+                <h3>Fullmetal Alchemist Brotherhood Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/DARLING in the FRANXX GUI Custom Pack.html" data-name="DARLING in the FRANXX GUI Custom Pack">
+                <img src="https://i.imgur.com/FOI6SiF.png" alt="DARLING in the FRANXX GUI Custom Pack">
+                <h3>DARLING in the FRANXX GUI Custom Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/My Dress-Up Darling Custom GUI Pack.html" data-name="My Dress-Up Darling Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/88wXyA9p/images/221456a3163ec3f4b905f1926ea4a237ffaf6ef0.png" alt="My Dress-Up Darling Custom GUI Pack">
+                <h3>My Dress-Up Darling Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Blue Lock Custom GUI Pack.html" data-name="Blue Lock Custom GUI Pack">
+                <img src="https://i.imgur.com/hxWDhhE.png" alt="Blue Lock Custom GUI Pack">
+                <h3>Blue Lock Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Tokyo Ghoul Custom GUI Pack.html" data-name="Tokyo Ghoul Custom GUI Pack">
+                <img src="https://i.imgur.com/sFbv6rt.png" alt="Tokyo Ghoul Custom GUI Pack">
+                <h3>Tokyo Ghoul Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/My Hero Academia Custom GUI Pack.html" data-name="My Hero Academia Custom GUI Pack">
+                <img src="https://i.imgur.com/Qh2yVTZ.png" alt="My Hero Academia Custom GUI Pack">
+                <h3>My Hero Academia Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/The Wilder Forest Custom GUI Pack.html" data-name="The Wilder Forest Custom GUI Pack">
+                <img src="https://i.imgur.com/SoqWkel.png" alt="The Wilder Forest Custom GUI Pack">
+                <h3>The Wilder Forest Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Rent-A-Girlfriend Custom GUI Pack.html" data-name="Rent A Girlfriend Custom GUI Pack">
+                <img src="https://i.imgur.com/lHYFAw6.png" alt="Rent A Girlfriend Custom GUI Pack">
+                <h3>Rent A Girlfriend Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Classroom Of The Elite Custom GUI Pack.html" data-name="Classroom Of The Elite Custom GUI Pack">
+                <img src="https://i.imgur.com/QC0Wdc4.png" alt="Classroom Of The Elite Custom GUI Pack">
+                <h3>Classroom Of The Elite Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Pokemon Custom GUI Pack.html" data-name="Pokemon Custom GUI Pack">
+                <img src="https://i.imgur.com/3Auwf9G.png" alt="Pokemon Custom GUI Pack">
+                <h3>Pokemon Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/Puella Magi Madoka Magica Custom GUI Pack.html" data-name="Puella Magi Madoka Magica Custom GUI Pack">
+                <img src="https://i.imgur.com/JcmcAh0.png" alt="Puella Magi Madoka Magica Custom GUI Pack">
+                <h3>Puella Magi Madoka Magica Custom GUI Pack</h3>
+            </div>
+            <div class="pack" data-href="Packs/K-On!! Custom GUI Pack.html" data-name="K-On!! Custom GUI Pack">
+                <img src="https://cdn.modrinth.com/data/bcixYmDF/images/2cf3a9541375ab81ee4a1fc67ab4dd0e3e1fe82b.png" alt="K-On!! Custom GUI Pack">
+                <h3>K-On!! Custom GUI Pack</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="information">
+        <h2>Additional Resources</h2>
+        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+            </a>
+            <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
+                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+            </a>
+            <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ListarMC | <a href="Privacy Policy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        
+
+        // Toggle function for mobile navigation menu
+        function toggleNav() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+
+        document.querySelectorAll('.packs-grid .pack').forEach(pack => {
+            pack.addEventListener('click', function() {
+                const href = this.getAttribute('data-href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const packs = document.querySelectorAll('.packs-grid .pack');
+
+            packs.forEach(function(pack) {
+                const name = pack.getAttribute('data-name').toLowerCase();
+                if (name.includes(query)) {
+                    pack.style.display = 'block';
+                } else {
+                    pack.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
