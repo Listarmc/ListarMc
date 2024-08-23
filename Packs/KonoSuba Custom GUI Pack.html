@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KonoSuba Custom GUI Pack</title>
+    <title>KonoSuba Minecraft GUI Pack - Download & Features</title>
+    <meta name="description" content="Download the KonoSuba Minecraft GUI Pack. Enhance your Minecraft experience with a GUI pack inspired by the anime KonoSuba. Join our community for updates and exclusive content.">
     <link rel="stylesheet" href="styles2.css">
-    <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/gif" href="fav.gif">
     <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084188"></script>
@@ -21,15 +21,13 @@
             font-size: 20px;
         }
         
-        /* Darker background on mouse-over */
         .btn:hover {
             background-color: RoyalBlue;
         }
 
-        /* Navbar styling */
         .navbar {
             display: flex;
-            justify-content: center; /* Center the navbar items */
+            justify-content: center;
             background-color: #333;
             overflow: hidden;
         }
@@ -57,7 +55,6 @@
             display: none;
         }
 
-        /* Responsive layout for small screens */
         @media screen and (max-width: 600px) {
             .navbar a:not(:first-child) {display: none;}
             .navbar a.icon {
@@ -80,11 +77,9 @@
             }
         }
 
-        /* Center section headings */
         h2 {
             text-align: center;
-            display: block;
-            margin: 20px 0; /* Add some margin for spacing */
+            margin: 20px 0;
             width: 100%;
         }
 
@@ -106,10 +101,19 @@
             cursor: pointer;
         }
 
-        .discord-info {
-            text-align: center;
-            margin: 20px;
+        .resources-grid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
+
+        .resources-grid a img {
+            width: 150px;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -117,7 +121,7 @@
         <div class="navbar" id="myNavbar">
             <a href="https://listar-mc.net/index.html" class="active">Home</a>
             <a href="https://listar-mc.net/index.html#packs">Texture Packs</a>
-            <a href="#photos">Features</a>
+            <a href="#features">Features</a>
             <a href="#information">Information</a>
             <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
                 <i class="fa fa-bars"></i>
@@ -128,7 +132,7 @@
     <!-- Modal Structure -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg">
+        <img class="modal-content" id="modalImg" alt="Expanded GUI Image">
         <div id="caption"></div>
         <button class="download" id="downloadBtn">Download</button>
         <button class="prev" onclick="changeImage(-1)">&#10094;</button>
@@ -136,99 +140,100 @@
     </div>
 
     <section id="pack-details">
-        <h2>KonoSuba Custom GUI Pack</h2>
-        <img src="https://i.imgur.com/FJWxF6j.png" alt="KonoSuba Custom GUI Pack" class="pack-cover">
+        <h2>KonoSuba Minecraft GUI Pack</h2>
+        <img src="https://i.imgur.com/FJWxF6j.png" alt="KonoSuba Minecraft GUI Pack" class="pack-cover">
+        <p>Enhance your Minecraft gameplay with the <strong>KonoSuba Minecraft GUI Pack</strong>. This resource pack brings the whimsical and vibrant aesthetics of the anime KonoSuba to your game, offering a customized interface that can be layered over other resource packs for a unique experience.</p>
     </section>
 
     <section>
-        <h2>Introduction</h2>
-        <p>This GUI-only resource pack is themed around "KonoSuba." It can be combined with other resource packs by placing it on top of your current one. I've updated various UI elements, including the hot bar, and added different images to each container. The chosen color palette is purple and orange, but I’m open to suggestions for other color schemes like
-             pink and white.</p>  
-         </section>
-
-    <section>
-        <h2>Community Engagement</h2>
-        <p>Join our Discord server to suggest and vote for the next pack, participate in anime discussions, and have the chance to win Discord Nitro giveaways every month. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Discord Server</a></p>
+        <h2>About the KonoSuba GUI Pack</h2>
+        <p>The <strong>KonoSuba GUI Pack</strong> is a GUI-only resource pack designed to transform your Minecraft interface with designs inspired by the anime <em>KonoSuba</em>. You can easily use this pack on top of your existing resource packs to enjoy updated UI elements, including a revamped hotbar and unique textures for various containers. The current color palette features purple and orange, but we are open to suggestions for other colors such as pink and white. Your feedback is always welcome!</p>
+        <p>If you encounter any bugs or have suggestions, please report them on our Discord server, and we'll address them as quickly as possible.</p>
     </section>
 
     <section>
-        <h2>Feature Highlights</h2>
-        <div id="photos" class="features">
+        <h2>Join Our Community</h2>
+        <p>Become a part of our growing community by joining our Discord server! Here, you can suggest and vote on new GUI pack ideas, engage in anime discussions, and participate in monthly Discord Nitro giveaways. Connect with other Minecraft and anime enthusiasts and share your love for <em>KonoSuba</em>. <a href="https://discord.gg/RvScgzj3Ph" target="_blank">Join the Discord Server</a></p>
+    </section>
+
+    <section>
+        <h2>Features of the KonoSuba GUI Pack</h2>
+        <div id="features" class="features">
             <div class="feature">
-                <h3>Hud</h3>
-                <img src="https://i.imgur.com/RqXeIti.png" alt="Hud">
+                <h3>HUD</h3>
+                <img src="https://i.imgur.com/RqXeIti.png" alt="Custom HUD with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Settings</h3>
-                <img src="https://i.imgur.com/ecp2sDI.png" alt="Settings">
+                <img src="https://i.imgur.com/ecp2sDI.png" alt="Custom Settings Menu with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Creative Menu</h3>
-                <img src="https://i.imgur.com/XZ4mJhp.png" alt="Creative Menu">
+                <img src="https://i.imgur.com/XZ4mJhp.png" alt="Creative Menu with KonoSuba Design">
             </div>
             <div class="feature">
                 <h3>Inventory</h3>
-                <img src="https://i.imgur.com/INaWgAC.png" alt="Inventory">
+                <img src="https://i.imgur.com/INaWgAC.png" alt="Inventory with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Anvil</h3>
-                <img src="https://i.imgur.com/ewOX93N.png" alt="Anvil">
+                <img src="https://i.imgur.com/ewOX93N.png" alt="Anvil GUI with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Crafting Table</h3>
-                <img src="https://i.imgur.com/1IWjBQ7.png" alt="Crafting Table">
+                <img src="https://i.imgur.com/1IWjBQ7.png" alt="Crafting Table with KonoSuba Design">
             </div>
             <div class="feature">
                 <h3>Furnace</h3>
-                <img src="https://i.imgur.com/QYQDKay.png" alt="Furnace">
+                <img src="https://i.imgur.com/QYQDKay.png" alt="Furnace with KonoSuba Elements">
             </div>
             <div class="feature">
                 <h3>Shulker Box</h3>
-                <img src="https://i.imgur.com/jf1fhJz.png" alt="Shulker Box">
+                <img src="https://i.imgur.com/jf1fhJz.png" alt="Shulker Box with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Loom</h3>
-                <img src="https://i.imgur.com/T3WdMjn.png" alt="Loom">
+                <img src="https://i.imgur.com/T3WdMjn.png" alt="Loom with KonoSuba Design">
             </div>
             <div class="feature">
                 <h3>Brewing Stand</h3>
-                <img src="https://i.imgur.com/2gA0er4.png" alt="Brewing Stand">
+                <img src="https://i.imgur.com/2gA0er4.png" alt="Brewing Stand with KonoSuba Theme">
             </div>
             <div class="feature">
                 <h3>Cartography Table</h3>
-                <img src="https://i.imgur.com/3Ho0BSV.png" alt="Cartography Table">
+                <img src="https://i.imgur.com/3Ho0BSV.png" alt="Cartography Table with KonoSuba Design">
             </div>
             <div class="feature">
                 <h3>Villager Trading Menu</h3>
-                <img src="https://i.imgur.com/YE1Ypkr.png" alt="Villager Trading Menu">
+                <img src="https://i.imgur.com/YE1Ypkr.png" alt="Villager Trading Menu with KonoSuba Theme">
             </div>
         </div>
         <div style="width: 50%; margin: 0 auto; text-align: center;">
-            <p>Download Links</p>
-            <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
+            <p>Download the KonoSuba GUI Pack</p>
+            <a href="https://www.curseforge.com/minecraft/texture-packs/konosuba-gui-pack" target="_blank">
                 <button class="btn download-btn orange">
-                    <img src="curseforge-svgrepo-com.png" alt="Icon" class="button-icon"> Download
+                    <img src="curseforge-svgrepo-com.png" alt="CurseForge Download Icon" class="button-icon"> Download via CurseForge
                 </button>
             </a>
-            <a href="https://example.com/second-download" target="_blank">
+            <a href="https://modrinth.com/resourcepack/konosuba-gui-pack" target="_blank">
                 <button class="btn download-btn green">
-                    <img src="modrinth.png" alt="Icon" class="button-icon"> Download 
+                    <img src="modrinth.png" alt="Modrinth Download Icon" class="button-icon"> Download via Modrinth
                 </button>
             </a>
         </div>
     </section>
 
     <section id="information">
-        <h2>Additional Resources</h2>
-        <div class="resources-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <h2>Support and Additional Resources</h2>
+        <div class="resources-grid">
             <a href="https://www.buymeacoffee.com/listarMc" target="_blank">
-                <img src="coffe.png" class="coffee-img" alt="Support via Coffee">
+                <img src="coffe.png" class="coffee-img" alt="Support ListarMC via Buy Me a Coffee">
             </a>
             <a href="https://www.planetminecraft.com/member/listar/" target="_blank">
-                <img src="PMC.webp" class="PMC-img" alt="Support via PMC">
+                <img src="PMC.webp" class="PMC-img" alt="Support ListarMC on Planet Minecraft">
             </a>
             <a href="https://discord.gg/RvScgzj3Ph" target="_blank">
-                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Support via Discord">
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" class="Dis-img" alt="Join ListarMC Discord Server">
             </a>
         </div>
     </section>
@@ -236,7 +241,6 @@
 <footer>
     <p>&copy; 2024 ListarMC | <a href="../Privacy Policy.html">Privacy Policy</a></p>
 </footer>
-
 
     <script>
         // Toggle function for mobile navigation menu
