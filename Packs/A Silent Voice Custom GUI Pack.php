@@ -86,7 +86,7 @@
             width: 100%;
         }
     </style>
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084282"></script>
+<?php require_once('imp.php'); ?>
 <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084282"></script>
 </head>
 <body>
