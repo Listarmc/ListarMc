@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <!-- Homepage -->
+   <url>
+      <loc>https://listar-mc.net/</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>1.0</priority>
+   </url>
+
+   <!-- Texture Packs Overview -->
+   <url>
+      <loc>https://listar-mc.net/#packs</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- Individual Texture Packs -->
+   <url>
+      <loc>https://listar-mc.net/Packs/That%20Time%20I%20Got%20Reincarnated%20as%20a%20Slime%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Invincible%20Custom%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Kaiju%20No.%208%20Custom%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Solo%20Leveling%20Custom%20GUI.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Kill%20la%20Kill%20Custom%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Demon%20Slayer%20Kimetsu%20no%20Yaiba%20Custom%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://listar-mc.net/Packs/Chainsaw%20Man%20Custom%20GUI%20Pack.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <!-- Add additional packs in the same format -->
+
+   <!-- Information Section -->
+   <url>
+      <loc>https://listar-mc.net/#information</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+   <!-- Support Links -->
+   <url>
+      <loc>https://www.buymeacoffee.com/listarMc</loc>
+      <priority>0.5</priority>
+   </url>
+   <url>
+      <loc>https://www.planetminecraft.com/member/listar/</loc>
+      <priority>0.5</priority>
+   </url>
+   <url>
+      <loc>https://discord.gg/RvScgzj3Ph</loc>
+      <priority>0.5</priority>
+   </url>
+
+   <!-- Privacy Policy -->
+   <url>
+      <loc>https://listar-mc.net/Privacy%20Policy.html</loc>
+      <lastmod>2024-08-24</lastmod>
+      <priority>0.4</priority>
+   </url>
+
+</urlset>
