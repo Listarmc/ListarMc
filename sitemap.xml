@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-   <!-- Homepage -->
+      <!-- Homepage -->
    <url>
       <loc>https://listar-mc.net/</loc>
       <lastmod>2024-08-24</lastmod>
@@ -14,7 +14,6 @@
       <lastmod>2024-08-24</lastmod>
       <priority>0.8</priority>
    </url>
-
    <!-- Individual Texture Packs -->
    <url>
       <loc>https://listar-mc.net/Packs/That%20Time%20I%20Got%20Reincarnated%20as%20a%20Slime%20GUI%20Pack.html</loc>
@@ -212,25 +211,11 @@
       <priority>0.7</priority>
    </url>
 
-   <!-- Information Section -->
+ <!-- Information Section -->
    <url>
       <loc>https://listar-mc.net/#information</loc>
       <lastmod>2024-08-24</lastmod>
       <priority>0.6</priority>
-   </url>
-
-   <!-- Support Links -->
-   <url>
-      <loc>https://www.buymeacoffee.com/listarMc</loc>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://www.planetminecraft.com/member/listar/</loc>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://discord.gg/RvScgzj3Ph</loc>
-      <priority>0.5</priority>
    </url>
 
    <!-- Privacy Policy -->
