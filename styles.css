@@ -486,3 +486,103 @@ img {
   
   /* Add more classes for other tag types with their respective colors */
   /* Ensure section headings stay in place on mobile */
+/* Keep the rest of your existing CSS intact */
+
+/* Updated Container for the content */
+.content-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+/* Filter Panel Styling */
+section.filter-panel {
+    background-color: #121212;
+    padding: 15px;
+    border-radius: 8px;
+    color: #e0e0e0;
+    width: 200px;  /* Reduced width for better alignment */
+    margin-right: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+section.filter-panel .filter-list {
+    margin-bottom: 20px;
+}
+
+section.filter-panel h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #50C878;
+    font-weight: bold;
+}
+
+section.filter-panel .filter-categories {
+    list-style: none;
+    padding: 0;
+}
+
+section.filter-panel .filter-categories li {
+    margin-bottom: 20px;
+}
+
+section.filter-panel .filter-categories h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #50C878;
+    text-transform: uppercase;
+}
+
+section.filter-panel .filter-options {
+    list-style: none;
+    padding-left: 15px;
+}
+
+section.filter-panel .filter-options li {
+    margin-bottom: 8px;
+}
+
+section.filter-panel .filter-options a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+section.filter-panel .filter-options a:hover {
+    text-decoration: underline;
+    color: #50C878;
+}
+
+/* Texture Packs Section Styling */
+section.texture-packs-section {
+    flex-grow: 1;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+section.texture-packs-section .texture-packs-heading {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section.texture-packs-section .texture-pack {
+    background-color: #181818;
+    padding: 15px;
+    border-radius: 8px;
+    color: #e0e0e0;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+section.texture-packs-section .texture-pack img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
