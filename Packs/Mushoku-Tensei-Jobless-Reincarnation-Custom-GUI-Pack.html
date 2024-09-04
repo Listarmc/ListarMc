@@ -244,6 +244,37 @@
                 modal.style.display = "none";
             };
         </script>
-    </body>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Create a script element to load the ad script
+    var script = document.createElement('script');
+    script.src = "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1084188";
+    script.async = true;
+
+    script.onload = function() {
+        // Script loaded successfully, do nothing
+    };
+
+    script.onerror = function() {
+        // Script failed to load, likely due to ad blocker
+        document.getElementById('adblock-message').style.display = 'block';
+    };
+
+    document.head.appendChild(script);
+});
+</script>
+
+
+<div id="adblock-message" style="display:none;">
+    <div class="adblock-container">
+        <h2>Ad Blocker Detected</h2>
+        <p>Please disable your ad blocker to access this website.</p>
+        <img src="https://i.imgur.com/YrDk7NT.png" alt="Ad Block Warning" class="adblock-image">
+        <button onclick="location.reload();" class="refresh-button">Refresh Page</button>
+    </div>
+</div>
+
+</body>
     </html>
     
